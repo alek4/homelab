@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -125,6 +125,14 @@
   users.users."aless".openssh.authorizedKeys.keyFiles = [
     /home/aless/.ssh/authorized_keys
   ];
+
+  programs.git = {
+    enable = true;
+    config.user = {
+      name  = "alek4";
+      email = "alessandro.bordo41@gmail.com";
+    };
+  };
 
   services.samba = {
     enable = true;
